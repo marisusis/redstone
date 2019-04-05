@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <minecraft.version>1.13.2-R0.1-SNAPSHOT</minecraft.version>
         <junit.jupiter.version>5.3.1</junit.jupiter.version>
         <powermock.version>1.7.1</powermock.version>
+        <minecraft.version>1.13.2-R0.1-SNAPSHOT</minecraft.version>
     </properties>
 
     <artifactId>bukkit</artifactId>
