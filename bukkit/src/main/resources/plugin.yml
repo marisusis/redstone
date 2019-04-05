@@ -1,0 +1,6 @@
+name: NetworkCoreBukkit
+version: 1.0-SNAPSHOT
+author: Maris Usis
+main: com.altarisnine.networkcore.bukkit.bootstrap.BukkitNetworkCoreBootstrap
+api-version: 1.13
+#api-version: //the version of the API you want to use, currently only 1.13 is special

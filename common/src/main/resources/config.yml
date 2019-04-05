@@ -1,0 +1,8 @@
+verbose: false
+mongodb:
+  auth: false
+  username: username
+  password: password
+  authdb: database
+  host: localhost
+  port: 27017

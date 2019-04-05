@@ -1,0 +1,4 @@
+name: NetworkCore
+main: com.altarisnine.networkcore.bungee.bootstrap.BungeeNetworkCoreBootstrap
+version: 1.0-SNAPSHOT
+author: Ryde__

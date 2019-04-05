@@ -1,0 +1,35 @@
+stages:
+  - test
+  - build
+  - deploy
+
+testing:
+  stage: test
+  script:
+    - mvn compile
+    - mvn test
+
+maven:
+  only:
+    refs:
+      - master
+      - schedules
+  stage: build
+  script:
+    - mvn clean install
+  artifacts:
+    paths:
+      - bungee/target/*.jar
+      - bukkit/target/*.jar
+      - sponge/target/*.jar
+      - common/target/*.jar
+      - api/target/*.jar
+
+copy:
+  only:
+    refs:
+      - master
+      - schedules
+  stage: deploy
+  script:
+    - echo Copying plugins...

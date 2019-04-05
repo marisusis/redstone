@@ -1,0 +1,8 @@
+.idea
+api/target
+api.iml
+*.iml
+bungee/target
+common/target
+bukkit/target
+sponge/target
