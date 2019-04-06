@@ -3,6 +3,7 @@ package com.altarisnine.redstone.bungee;
 import com.altarisnine.redstone.bungee.api.BungeeAPI;
 import com.altarisnine.redstone.bungee.bootstrap.BungeeRedstoneCoreBootstrap;
 import com.altarisnine.redstone.bungee.command.BungeeCommandManager;
+import com.altarisnine.redstone.bungee.commands.LeaveCommand;
 import com.altarisnine.redstone.bungee.listeners.BungeeListener;
 import com.altarisnine.redstone.bungee.players.BungeePlayerManager;
 import com.altarisnine.redstone.bungee.scheduling.BungeeNetworkScheduler;
@@ -75,6 +76,7 @@ public class BungeeRedstoneCore extends RedstoneCore {
     @Override
     protected void postLoad() {
         super.postLoad();
+        commandManager.registerCommand(new LeaveCommand(), this);
     }
 
     @Override

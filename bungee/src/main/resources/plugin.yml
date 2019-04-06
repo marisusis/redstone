@@ -1,4 +1,4 @@
 name: NetworkCore
-main: com.altarisnine.redstone.bungee.bootstrap.BungeeNetworkCoreBootstrap
+main: com.altarisnine.redstone.bungee.bootstrap.BungeeRedstoneCoreBootstrap
 version: 1.0-SNAPSHOT
 author: Ryde__

@@ -7,7 +7,7 @@
     <groupId>com.altarisnine</groupId>
     <artifactId>redstone</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.1</version>
+    <version>1.1.1</version>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>

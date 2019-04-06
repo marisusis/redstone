@@ -69,7 +69,7 @@ public abstract class CommandNode implements Command {
         }
 
 
-        this.aliases = ImmutableList.copyOf(aliases);
+        this.aliases = ImmutableList.<String>builder().addAll(aliases).add(name).build();
     }
 
     public CommandNode(String name, Rank permissionLevel, String description) {

@@ -23,7 +23,7 @@ public final class PlayerStorageHelper extends StorageHelper {
         // Create blank storage group for namespace players and with a random uuid;
         StorageGroup group = new StorageGroup("players", UUID.randomUUID().toString());
 
-        group.set("group", "DEFAULT", true);
+        group.set("rank", "DEFAULT", true);
         group.set("displayRank", "DEFAULT", true);
         group.set("username", "Notch", true);
         group.set("key", UUID.nameUUIDFromBytes(new byte[]{0}).toString(), true);

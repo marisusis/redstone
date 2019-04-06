@@ -9,6 +9,7 @@ import com.altarisnine.redstone.api.inventory.PlayerInventory;
 import com.altarisnine.redstone.api.text.Text;
 import com.altarisnine.redstone.api.util.Vector;
 import com.altarisnine.redstone.api.world.Location;
+import com.altarisnine.redstone.bungee.Converter;
 import com.altarisnine.redstone.common.RedstoneCore;
 import com.altarisnine.redstone.common.entity.living.player.CorePlayer;
 import net.md_5.bungee.api.ChatColor;
@@ -143,17 +144,17 @@ public class BungeePlayer extends CorePlayer {
 
     @Override
     public void kick(String reason) {
-        player.disconnect(TextComponent.fromLegacyText(reason));
+        player.disconnect(Converter.parse(Text.of(reason)));
     }
 
     @Override
     public void sendMessage(String message) {
-        player.sendMessage(TextComponent.fromLegacyText(message));
+        sendMessage(Text.of(message));
     }
 
     @Override
     public void sendMessage(Text text) {
-        sendMessage(ChatColor.translateAlternateColorCodes('&', text.getContent()));
+        player.sendMessage(Converter.parse(text));
     }
 
     @Override
@@ -329,5 +330,10 @@ public class BungeePlayer extends CorePlayer {
     @Override
     public boolean isCollidable() {
         throw new UnsupportedOperationException("BungeeCord not allowed");
+    }
+
+    @Override
+    public String getServerName() {
+        return player.getServer().getInfo().getName();
     }
 }

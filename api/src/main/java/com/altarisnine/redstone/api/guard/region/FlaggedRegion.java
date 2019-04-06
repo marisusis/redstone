@@ -19,8 +19,9 @@ public abstract class FlaggedRegion<B extends Boundary> extends AbstractRegion<B
         this.flags = new HashMap<>();
     }
 
-    public <T> void setFlag(Flag<T> flag, T value) {
+    public <T> boolean setFlag(Flag<T> flag, T value) {
         flags.put(flag, value);
+        return true;
     }
 
     public <T> T queryFlagState(Flag<T> flag) {

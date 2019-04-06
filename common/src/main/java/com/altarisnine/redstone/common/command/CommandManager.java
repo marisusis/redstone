@@ -1,5 +1,6 @@
 package com.altarisnine.redstone.common.command;
 
+import com.altarisnine.redstone.api.Redstone;
 import com.altarisnine.redstone.api.command.CommandNode;
 import com.altarisnine.redstone.api.command.argument.Argument;
 import com.altarisnine.redstone.api.plugin.Plugin;
@@ -78,7 +79,7 @@ public abstract class CommandManager {
 
                 // If there are no matches, return no completions
                 if (resolved == null) {
-                    //Redstone.getApi().getLogger().debug("No matches for command with next argument provided");
+                    Redstone.getApi().getLogger().debug("No matches for command with next argument provided");
                     return Collections.emptyList();
                 }
 
@@ -87,10 +88,10 @@ public abstract class CommandManager {
             } else {
                 // PERFORMANCE would it be faster to just return matching values, if exact, only that one will be returned
                 if (registeredAliases.keySet().stream().anyMatch(s -> s.equals(cmdToTest))) {
-                    //Redstone.getApi().getLogger().debug("Alias matched, next tab complete will tackle next argument if user adds space");
+                    Redstone.getApi().getLogger().debug("Alias matched, next tab complete will tackle next argument if user adds space");
                     return Collections.emptyList();
                 } else {
-                    //Redstone.getApi().getLogger().debug("Return matching aliases (if any)");
+                    Redstone.getApi().getLogger().debug("Return matching aliases (if any)");
                     return registeredAliases.keySet().stream().filter(s -> s.startsWith(cmdToTest)).collect(Collectors.toList());
                 }
             }
@@ -104,7 +105,7 @@ public abstract class CommandManager {
                 // Iterate through children, look for match, continue while loop on a match
                 for (CommandNode child : node.getChildren().values()) {
                     if (child.getAliases().contains(inputArg)) {
-                        //Redstone.getApi().getLogger().debug("Matched child, update node cursor, and continue subcommands loop.");
+                        Redstone.getApi().getLogger().debug("Matched child, update node cursor, and continue subcommands loop.");
                         node = child;
                         continue subcommands;
                     }
@@ -115,7 +116,7 @@ public abstract class CommandManager {
                 break subcommands;
             } while (iterator.hasNext());
 
-            //Redstone.getApi().getLogger().debug("No more child matches, start matching arguments");
+            Redstone.getApi().getLogger().debug("No more child matches, start matching arguments");
 
             iterator.previous();
         } else {
@@ -127,13 +128,13 @@ public abstract class CommandManager {
         // If this first-next argument is the last, then return child aliases as well as argument values
 
         if (iterator.hasNext()) {
-            //Redstone.getApi().getLogger().debug("Found another input arg for argument checking");
+            Redstone.getApi().getLogger().debug("Found another input arg for argument checking");
 
             // Get input argument
             String inputArg = iterator.next();
 
             if (iterator.previousIndex() == startIndex && !iterator.hasNext()) {
-                //Redstone.getApi().getLogger().debug("First non completed child node arg: " + inputArg);
+                Redstone.getApi().getLogger().debug("First non completed child node arg: " + inputArg);
 
                 // Add children aliases to completions
                 List<String> completions = new ArrayList<>(node.getChildren().keySet());
@@ -141,7 +142,7 @@ public abstract class CommandManager {
                 int index = iterator.previousIndex() - startIndex;
 
                 if (node.hasArgumentAt(index)) {
-                    //Redstone.getApi().getLogger().debug("Found arguments for child, added to completions");
+                    Redstone.getApi().getLogger().debug("Found arguments for child, added to completions");
                     completions.addAll(node.getArgument(index).getAvailableValues());
                 }
 
@@ -161,17 +162,17 @@ public abstract class CommandManager {
                     if (node.hasArgumentAt(index)) {
                         Argument<?> argument = node.getArgument(index);
 
-                        //Redstone.getApi().getLogger().debug("Found argument #" + Integer.toString(index) + " with type " + argument.getClass().getSimpleName());
+                        Redstone.getApi().getLogger().debug("Found argument #" + Integer.toString(index) + " with type " + argument.getClass().getSimpleName());
 
                         if (argument.validate(inputArg)) {
-                            //Redstone.getApi().getLogger().debug(String.format("Validated argument #%d with input %s", index, inputArg));
+                            Redstone.getApi().getLogger().debug(String.format("Validated argument #%d with input %s", index, inputArg));
                         } else {
                             if (!iterator.hasNext()) {
                                 String finalInputArg = inputArg;
                                 if (inputArg.equals(" ")) return argument.getAvailableValues();
                                 else return argument.getAvailableValues().stream().filter(s -> s.startsWith(finalInputArg)).collect(Collectors.toList());
                             } else {
-                                //Redstone.getApi().getLogger().debug("No arguments found that match, more arguments found, return no completions");
+                                Redstone.getApi().getLogger().debug("No arguments found that match, more arguments found, return no completions");
                                 return Collections.emptyList();
                             }
                         }

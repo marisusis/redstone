@@ -41,6 +41,10 @@ public interface Player extends OfflinePlayer, LivingEntity, AnimalTamer, Syncab
 
     void sendToServer(String serverName);
 
+    default String getServerName() {
+        throw new UnsupportedOperationException();
+    }
+
     void closeInventory();
 
     PlayerInventory getInventory();

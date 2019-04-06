@@ -15,6 +15,8 @@ final class TextHelper {
     private static final Pattern finalPattern = Pattern.compile("&[a-fk-o0-9]");
 
     static Text legacyStringToText(final String input) {
+        if (input.length() == 0) return Text.EMPTY;
+
         // Empty text array
         ArrayList<Text> texts = new ArrayList<>();
 

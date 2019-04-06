@@ -9,7 +9,7 @@ import com.altarisnine.redstone.api.world.World;
 
 public interface Region<B extends Boundary> {
     boolean testFlagFor(Player player, PermissibleFlag flag);
-    <T> void setFlag(Flag<T> flag, T value);
+    <T> boolean setFlag(Flag<T> flag, T value);
 
     String getName();
     World getWorld();

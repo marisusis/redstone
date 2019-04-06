@@ -18,7 +18,9 @@ public class Text {
 
     @Getter private String content;
     @Getter final TextFormat format;
-    @Getter final ImmutableList<Text> children;
+    @Getter final List<Text> children;
+
+    public static final Text EMPTY = new Text("", TextFormat.NONE, Collections.emptyList());
 
 
     Text() {
@@ -26,7 +28,7 @@ public class Text {
         this.children = ImmutableList.of();
     }
 
-    Text(String content, TextFormat format, ImmutableList<Text> children) {
+    Text(String content, TextFormat format, List<Text> children) {
         this.content = content;
         this.format = format;
         this.children = children;
