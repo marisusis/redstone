@@ -46,7 +46,7 @@ public class PubSubManager {
                     case "kick":
                     case "mute":
                     case "unmute":
-                        plugin.getLogger().success(String.format("Action %s on player %s.", commands[0], commands[1]));
+                        plugin.getLogger().info(String.format("Action %s on player %s.", commands[0], commands[1]));
                         break;
                     default:
                         plugin.getLogger().error("Invalid message received from channel player!");
