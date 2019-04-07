@@ -11,6 +11,7 @@ import com.altarisnine.redstone.api.entity.living.player.Player;
 import com.altarisnine.redstone.api.event.EventManager;
 import com.altarisnine.redstone.api.plugin.Plugin;
 import com.altarisnine.redstone.api.plugin.PluginManager;
+import com.altarisnine.redstone.api.util.Logger;
 import com.altarisnine.redstone.common.api.APIBase;
 import com.altarisnine.redstone.common.bootstrap.RedstoneCoreBootstrap;
 import com.altarisnine.redstone.common.command.CommandManager;
@@ -72,7 +73,7 @@ public abstract class RedstoneCore implements ConfigurationHolder {
 
     @Getter protected PluginManager pluginManager;
 
-    @Getter protected CoreLogger logger;
+    @Getter protected Logger logger;
 
     @Getter protected EventManager eventManager;
 
