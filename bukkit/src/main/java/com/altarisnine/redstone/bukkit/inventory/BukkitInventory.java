@@ -6,9 +6,11 @@ import com.altarisnine.redstone.api.inventory.Item;
 import com.altarisnine.redstone.bukkit.Converter;
 import com.altarisnine.redstone.common.RedstoneCore;
 import org.bukkit.entity.HumanEntity;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class BukkitInventory implements Inventory {
 
@@ -52,6 +54,4 @@ public class BukkitInventory implements Inventory {
     public void addItem(Item item) {
         inventory.addItem(Converter.item(item));
     }
-
-
 }

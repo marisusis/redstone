@@ -7,7 +7,7 @@ import com.altarisnine.redstone.api.guard.spatial.boundary.Boundary;
 import com.altarisnine.redstone.api.guard.spatial.selection.ColumnSelector;
 import com.altarisnine.redstone.api.guard.spatial.selection.Selector;
 import com.altarisnine.redstone.api.util.Rank;
-import com.altarisnine.redstone.api.util.RedundancyException;
+import com.altarisnine.redstone.api.util.RedundancyError;
 import com.altarisnine.redstone.common.RedstoneCore;
 import lombok.Getter;
 
@@ -25,7 +25,7 @@ public abstract class CorePlayer implements Player {
     private Selector selector;
 
     protected CorePlayer(RedstoneCore instance, UUID uuid) {
-        if (Redstone.getApi().getPlayer(uuid) != null) throw new RedundancyException(Player.class);
+        if (Redstone.getApi().getPlayer(uuid) != null) throw new RedundancyError(Player.class);
         this.uuid = uuid;
         this.core = instance;
         // TODO allow changing of selector type9

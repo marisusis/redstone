@@ -3,7 +3,7 @@
   <parent>
     <artifactId>redstone</artifactId>
     <groupId>com.altarisnine</groupId>
-    <version>1.0.1</version>
+    <version>1.1.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>redstone-common</artifactId>
@@ -33,7 +33,7 @@
             <configuration>
               <artifactSet>
                 <includes>
-                  <include>com.altarisnine.networkcore:api</include>
+                  <include>com.altarisnine:redstone-api</include>
                   <include>com.google.code.gson:gson</include>
                   <include>redis.clients:jedis</include>
                   <include>org.mongodb:mongodb-driver-core</include>
@@ -64,12 +64,6 @@
       <groupId>org.yaml</groupId>
       <artifactId>snakeyaml</artifactId>
       <version>1.24-SNAPSHOT</version>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.altarisnine</groupId>
-      <artifactId>redstone-api</artifactId>
-      <version>1.0.1</version>
       <scope>compile</scope>
     </dependency>
     <dependency>

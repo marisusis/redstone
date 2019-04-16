@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <parent>
-    <artifactId>networkcore</artifactId>
-    <groupId>com.altarisnine.networkcore</groupId>
-    <version>1.0.0</version>
+    <artifactId>redstone</artifactId>
+    <groupId>com.altarisnine</groupId>
+    <version>1.1.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>bungee</artifactId>
+  <artifactId>redstone-bungee</artifactId>
   <build>
     <plugins>
       <plugin>
@@ -26,7 +26,7 @@
             <configuration>
               <artifactSet>
                 <includes>
-                  <include>com.altarisnine.networkcore:common</include>
+                  <include>com.altarisnine:redstone-common</include>
                 </includes>
               </artifactSet>
             </configuration>

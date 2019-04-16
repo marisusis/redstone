@@ -53,6 +53,10 @@ public class TextFormat {
         return new TextFormat(color, style);
     }
 
+    public String getCodes() {
+        return "&" + color.getMarker() + style.getCodes();
+    }
+
     @Override
     public String toString() {
         return "TextFormat{" +

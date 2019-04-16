@@ -19,6 +19,12 @@ public abstract class JavaPlugin implements Plugin {
     @Getter private PluginLoader loader;
     @Getter private Server server;
     private File dataFolder;
+
+    @Override
+    public String getIdentifier() {
+        return pluginInfo.getName();
+    }
+
     @Getter private PluginInfo pluginInfo;
     private boolean enabled = false;
     private File file;

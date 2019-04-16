@@ -19,6 +19,7 @@ public interface Server {
     List<World> getWorlds();
     World getWorld(String name);
     World getWorld(UUID uid);
+    World createWorld(String name);
     void stop();
     OfflinePlayer getOfflinePlayer(String name);
     OfflinePlayer getOfflinePlayer(UUID id);

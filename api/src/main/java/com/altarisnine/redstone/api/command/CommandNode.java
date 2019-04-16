@@ -86,6 +86,12 @@ public abstract class CommandNode implements Command {
         } else return (C) object;
     }
 
+    public static <T, C extends T> C requireCast(T object, Class<C> castTo, Text errorMessage) throws InternalCommandException {
+        if (!castTo.isInstance(object)) {
+            throw new InternalCommandException(errorMessage);
+        } else return (C) object;
+    }
+
     /**
      * A helper method to get a player object if the sender is one, and throw an exception sending a message to the sender if not a player.
      *
@@ -103,13 +109,27 @@ public abstract class CommandNode implements Command {
         if (!condition) throw new InternalCommandException(Text.builder(errorMessage).color(TextColor.RED).build());
     }
 
+    protected static void requireTrue(boolean condition, Text errorMessage) throws InternalCommandException {
+        if (!condition) throw new InternalCommandException(errorMessage);
+    }
+
     protected static void requireFalse(boolean condition, String errorMessage) throws InternalCommandException {
         if (condition) throw new InternalCommandException(Text.builder(errorMessage).color(TextColor.RED).build());
+    }
+
+    protected static void requireFalse(boolean condition, Text errorMessage) throws InternalCommandException {
+        if (condition) throw new InternalCommandException(errorMessage);
     }
 
     protected static String requireRemaining(CommandContext context, String errorMessage) throws InternalCommandException {
         String remaining = context.getRemaining();
         if (remaining == null) throw new InternalCommandException(Text.builder(errorMessage).color(TextColor.RED).build());
+        return remaining;
+    }
+
+    protected static String requireRemaining(CommandContext context, Text errorMessage) throws InternalCommandException {
+        String remaining = context.getRemaining();
+        if (remaining == null) throw new InternalCommandException(errorMessage);
         return remaining;
     }
 

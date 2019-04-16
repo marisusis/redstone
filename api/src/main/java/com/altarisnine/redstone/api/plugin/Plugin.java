@@ -26,5 +26,4 @@ public interface Plugin extends ConfigurationHolder {
     boolean hasResource(String name);
 
     FileConfiguration getConfig(String name);
-
 }

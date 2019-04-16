@@ -4,6 +4,8 @@ import com.altarisnine.redstone.common.RedstoneCore;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPubSub;
 
+import java.util.logging.Logger;
+
 public class PubSubManager {
     private RedstoneCore plugin;
 
@@ -37,6 +39,7 @@ public class PubSubManager {
     private class PubSubListener extends JedisPubSub {
         @Override
         public void onMessage(String channel, String message) {
+            Logger.getLogger("Redis").info(channel + ": " + message);
             if (channel.equals("player")) {
                 final String[] commands = message.split(" ");
 

@@ -15,7 +15,11 @@ import com.altarisnine.redstone.api.util.Logger;
 import com.altarisnine.redstone.common.api.APIBase;
 import com.altarisnine.redstone.common.bootstrap.RedstoneCoreBootstrap;
 import com.altarisnine.redstone.common.command.CommandManager;
-import com.altarisnine.redstone.common.commands.*;
+import com.altarisnine.redstone.common.commands.AnnounceCommand;
+import com.altarisnine.redstone.common.commands.PlayerInfoCommand;
+import com.altarisnine.redstone.common.commands.RankCommand;
+import com.altarisnine.redstone.common.commands.TellCommand;
+import com.altarisnine.redstone.common.commands.TimeCommand;
 import com.altarisnine.redstone.common.commands.guard.FreezeCommand;
 import com.altarisnine.redstone.common.commands.guard.GuardBaseCommand;
 import com.altarisnine.redstone.common.commands.guard.UnfreezeCommand;
@@ -46,7 +50,11 @@ import io.sentry.Sentry;
 import lombok.Getter;
 
 import java.io.InputStream;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
 
 // TODO add second redis client to listen to pubsub system?
 
@@ -157,6 +165,11 @@ public abstract class RedstoneCore implements ConfigurationHolder {
         return (getClass().getClassLoader().getResourceAsStream(name));
     }
 
+    @Override
+    public String getIdentifier() {
+        return "redstone";
+    }
+
     protected void postLoad() {
         // FIXME Still being used?
         registerListeners();
@@ -219,6 +232,11 @@ public abstract class RedstoneCore implements ConfigurationHolder {
             case GLASS:
                 break;
         }
+    }
+
+    @Override
+    public FileConfiguration getConfig(String config) {
+        return configurationManager.getConfig(config);
     }
 
     // Plugin methods

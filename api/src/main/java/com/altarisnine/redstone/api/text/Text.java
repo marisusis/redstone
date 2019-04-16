@@ -1,5 +1,7 @@
 package com.altarisnine.redstone.api.text;
 
+import com.altarisnine.redstone.api.configuration.ConfigurationSection;
+import com.altarisnine.redstone.api.configuration.serialization.ConfigSerializable;
 import com.altarisnine.redstone.api.text.format.TextColor;
 import com.altarisnine.redstone.api.text.format.TextFormat;
 import com.altarisnine.redstone.api.text.format.TextStyle;
@@ -35,7 +37,18 @@ public class Text {
     }
 
     public String toFormat() {
-        return content.replace('&', '§');
+        StringBuilder builder = new StringBuilder();
+
+        if (!content.equals("")) {
+            builder.append(this.format.getCodes());
+            builder.append(this.content);
+        }
+
+        for (Text child : this.children) {
+            builder.append(child.toFormat());
+        }
+
+        return builder.toString();
     }
 
     public static Text of(String text, Object... parts) {

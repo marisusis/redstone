@@ -75,6 +75,18 @@ public class TextStyle {
         return new TextStyle(retBold, retItalic, retUnderline, retStrikethrough, retMagic);
     }
 
+    public String getCodes() {
+        StringBuilder builder = new StringBuilder();
+
+        if (bold) builder.append("&l");
+        if (italic) builder.append("&o");
+        if (underline) builder.append("&n");
+        if (magic) builder.append("&k");
+        if (strikethrough) builder.append("&m");
+
+        return builder.toString();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

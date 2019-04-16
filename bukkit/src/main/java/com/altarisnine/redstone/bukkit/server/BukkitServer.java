@@ -7,8 +7,10 @@ import com.altarisnine.redstone.bukkit.Converter;
 import com.altarisnine.redstone.common.server.CoreServer;
 import com.google.common.collect.ImmutableList;
 import org.bukkit.Bukkit;
+import org.bukkit.WorldCreator;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 public class BukkitServer extends CoreServer {
@@ -30,7 +32,13 @@ public class BukkitServer extends CoreServer {
 
     @Override
     public World getWorld(UUID uid) {
-        return getWorld(Bukkit.getWorld(uid).getName());
+        return getWorld(Objects.requireNonNull(Bukkit.getWorld(uid)).getName());
+    }
+
+    @Override
+    public World createWorld(String name) {
+        // Create the world
+        return getWorld(Objects.requireNonNull(Bukkit.createWorld(new WorldCreator("name"))).getName());
     }
 
     @Override

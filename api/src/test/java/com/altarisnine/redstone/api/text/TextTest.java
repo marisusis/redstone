@@ -398,9 +398,12 @@ public class TextTest {
         Text of3 = Text.of("&dThis is some&c multicolored text.");
         Assertions.assertEquals(b3, of3);
 
-        System.out.println(of3.toString());
-
         Text.of("&c&lThis is a &obunch of &4stuff &lthat should be format&cd");
+    }
+
+   // @Test
+    void testFormat() {
+        Assertions.assertEquals("&c&lThis is a &obunch of &4stuff &lthat should be format&cd", Text.of("&c&lThis is a &obunch of &4stuff &lthat should be format&cd").toFormat());
     }
 
     static boolean isColorChar(char c) {

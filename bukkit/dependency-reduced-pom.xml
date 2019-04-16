@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <parent>
-    <artifactId>networkcore</artifactId>
-    <groupId>com.altarisnine.networkcore</groupId>
-    <version>1.0.0</version>
+    <artifactId>redstone</artifactId>
+    <groupId>com.altarisnine</groupId>
+    <version>1.1.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>bukkit</artifactId>
+  <artifactId>redstone-bukkit</artifactId>
   <build>
     <plugins>
       <plugin>
@@ -33,7 +33,7 @@
             <configuration>
               <artifactSet>
                 <includes>
-                  <include>com.altarisnine.networkcore:common</include>
+                  <include>com.altarisnine:redstone-common</include>
                 </includes>
               </artifactSet>
             </configuration>
@@ -96,7 +96,7 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.2</version>
+      <version>1.18.6</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -192,7 +192,7 @@
   </dependencies>
   <properties>
     <powermock.version>1.7.1</powermock.version>
-    <junit.jupiter.version>5.3.1</junit.jupiter.version>
     <minecraft.version>1.13.2-R0.1-SNAPSHOT</minecraft.version>
+    <junit.jupiter.version>5.3.1</junit.jupiter.version>
   </properties>
 </project>
