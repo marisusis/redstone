@@ -34,13 +34,3 @@ copy:
   script:
     - echo Copying plugins...
     
-deploy_prod:
-  stage: deploy
-  script:
-    - echo "Deploy to production server"
-  environment:
-    name: production
-    url: https://play.altarisnine.com
-  when: manual
-  only:
-  - master
