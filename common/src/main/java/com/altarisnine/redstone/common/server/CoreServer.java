@@ -2,6 +2,7 @@ package com.altarisnine.redstone.common.server;
 
 import com.altarisnine.redstone.api.entity.living.player.OfflinePlayer;
 import com.altarisnine.redstone.api.entity.living.player.Player;
+import com.altarisnine.redstone.api.event.EventManager;
 import com.altarisnine.redstone.api.guard.Guard;
 import com.altarisnine.redstone.api.plugin.PluginManager;
 import com.altarisnine.redstone.api.scheduling.Scheduler;
@@ -57,6 +58,11 @@ public abstract class CoreServer implements Server {
     @Override
     public final PluginManager getPluginManager() {
         return core.getPluginManager();
+    }
+
+    @Override
+    public EventManager getEventManager() {
+        return core.getEventManager();
     }
 
     @Override

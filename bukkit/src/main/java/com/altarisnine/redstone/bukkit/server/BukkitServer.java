@@ -4,6 +4,7 @@ import com.altarisnine.redstone.api.entity.Entity;
 import com.altarisnine.redstone.api.world.World;
 import com.altarisnine.redstone.bukkit.BukkitRedstoneCore;
 import com.altarisnine.redstone.bukkit.Converter;
+import com.altarisnine.redstone.bukkit.world.BukkitWorld;
 import com.altarisnine.redstone.common.server.CoreServer;
 import com.google.common.collect.ImmutableList;
 import org.bukkit.Bukkit;
@@ -38,7 +39,7 @@ public class BukkitServer extends CoreServer {
     @Override
     public World createWorld(String name) {
         // Create the world
-        return getWorld(Objects.requireNonNull(Bukkit.createWorld(new WorldCreator("name"))).getName());
+        return new BukkitWorld(Objects.requireNonNull(Bukkit.createWorld(new WorldCreator(name))));
     }
 
     @Override

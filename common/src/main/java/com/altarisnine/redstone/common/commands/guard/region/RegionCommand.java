@@ -47,7 +47,7 @@ public class RegionCommand extends CommandNode {
                 Selector selector = player.getSelector();
 
                 // Get the region's name
-                String name = context.<String>getOne("name").get();
+                String name = context.<String>getOne("regionName").get();
 
                 if (Redstone.getApi().getGuard().getRegion(name) != null) {
                     player.sendMessage(Text.of("&cThat region already exists!"));

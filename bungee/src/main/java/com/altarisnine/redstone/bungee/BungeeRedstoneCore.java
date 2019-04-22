@@ -11,7 +11,6 @@ import com.altarisnine.redstone.bungee.user.BungeeUser;
 import com.altarisnine.redstone.common.RedstoneCore;
 import com.altarisnine.redstone.common.api.APIBase;
 import com.altarisnine.redstone.common.bootstrap.RedstoneCoreBootstrap;
-import com.altarisnine.redstone.common.messaging.PubSubManager;
 import com.altarisnine.redstone.common.user.User;
 import com.altarisnine.redstone.common.util.ServerType;
 import net.md_5.bungee.api.ChatColor;
@@ -64,7 +63,6 @@ public class BungeeRedstoneCore extends RedstoneCore {
 
         networkScheduler = new BungeeNetworkScheduler(this);
         commandManager = new BungeeCommandManager(this);
-        pubSubManager = new PubSubManager(this);
     }
 
     @Override

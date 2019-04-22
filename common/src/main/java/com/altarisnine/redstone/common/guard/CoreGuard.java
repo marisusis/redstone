@@ -12,6 +12,7 @@ import com.altarisnine.redstone.api.guard.handler.Handler;
 import com.altarisnine.redstone.api.guard.region.Region;
 import com.altarisnine.redstone.api.guard.region.RegionSet;
 import com.altarisnine.redstone.api.guard.session.Session;
+import com.altarisnine.redstone.api.server.Server;
 import com.altarisnine.redstone.api.text.Text;
 import com.altarisnine.redstone.api.util.Vector;
 import com.altarisnine.redstone.api.world.Location;
@@ -126,6 +127,11 @@ public class CoreGuard implements Guard {
     @Override
     public Set<Handler> getHandlers() {
         return ImmutableSet.copyOf(handlers);
+    }
+
+    @Override
+    public Server getServer() {
+        return core.getServer();
     }
 
     @Override

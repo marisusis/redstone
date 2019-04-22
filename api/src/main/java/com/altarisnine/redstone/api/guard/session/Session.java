@@ -3,15 +3,15 @@ package com.altarisnine.redstone.api.guard.session;
 import com.altarisnine.redstone.api.Redstone;
 import com.altarisnine.redstone.api.block.Block;
 import com.altarisnine.redstone.api.entity.living.player.Player;
+import com.altarisnine.redstone.api.event.guard.region.RegionEnterEvent;
+import com.altarisnine.redstone.api.event.guard.region.RegionExitEvent;
 import com.altarisnine.redstone.api.guard.Guard;
 import com.altarisnine.redstone.api.guard.flag.Flag;
 import com.altarisnine.redstone.api.guard.handler.Handler;
-import com.altarisnine.redstone.api.guard.region.Region;
 import com.altarisnine.redstone.api.guard.region.RegionSet;
 import com.altarisnine.redstone.api.guard.region.ResizableRegion;
 import com.altarisnine.redstone.api.guard.spatial.vector.VectorI3;
 import com.altarisnine.redstone.api.inventory.Item;
-import com.altarisnine.redstone.api.text.Text;
 import com.altarisnine.redstone.api.world.Location;
 import com.google.common.collect.Sets;
 import lombok.Getter;
@@ -61,21 +61,17 @@ public class Session {
                 }
             }
 
-            RegionSet newRegions = new RegionSet(Sets.difference(toRegions, fromRegions));
+            RegionSet enteredRegions = new RegionSet(Sets.difference(toRegions, fromRegions));
+            RegionSet exitedRegions = new RegionSet(Sets.difference(fromRegions, toRegions));
 
-            if (newRegions.size() > 0) {
-                StringBuilder builder = new StringBuilder();
+            if (enteredRegions.size() > 0) {
+                // call region enter event
+                guard.getServer().getEventManager().callEvent(new RegionEnterEvent(this, enteredRegions));
+            }
 
-                builder.append("&6You have entered the factions: [");
-
-                // Send feedback to player
-                for (Region newRegion : newRegions) {
-                    builder.append("&b").append(newRegion.getName()).append("&6, ");
-                }
-
-                builder.append("&6]");
-
-                player.sendActionBar(Text.of(builder.toString()));
+            if (exitedRegions.size() > 0) {
+                // call region enter event
+                guard.getServer().getEventManager().callEvent(new RegionExitEvent(this, exitedRegions));
             }
 
 

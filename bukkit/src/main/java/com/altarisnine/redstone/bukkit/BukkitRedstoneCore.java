@@ -129,12 +129,15 @@ public class BukkitRedstoneCore extends RedstoneCore {
     }
 
     public World getWorld(String name) {
-        if (!worlds.containsKey(name)) {
+
+        // MUST fix this
+       /* if (!worlds.containsKey(name)) {
             worlds.put(name, new BukkitWorld(Bukkit.getWorld(name)));
-        }
+        }*/
 
 
-        return worlds.get(name);
+//        return worlds.get(name);
+        return new BukkitWorld(Bukkit.getWorld(name));
     }
 
 }

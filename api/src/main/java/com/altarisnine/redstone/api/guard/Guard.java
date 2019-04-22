@@ -9,6 +9,7 @@ import com.altarisnine.redstone.api.guard.region.Region;
 import com.altarisnine.redstone.api.guard.region.RegionSet;
 import com.altarisnine.redstone.api.guard.session.Session;
 import com.altarisnine.redstone.api.inventory.Item;
+import com.altarisnine.redstone.api.server.Server;
 import com.altarisnine.redstone.api.util.Vector;
 import com.altarisnine.redstone.api.world.Location;
 import com.altarisnine.redstone.api.world.World;
@@ -43,6 +44,8 @@ public interface Guard {
     void registerHandler(Handler handler);
 
     Set<Handler> getHandlers();
+
+    Server getServer();
 
     Region[] getRegions(World world);
 

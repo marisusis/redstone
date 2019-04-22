@@ -2,6 +2,7 @@ package com.altarisnine.redstone.api.gui;
 
 import com.altarisnine.redstone.api.entity.living.player.Player;
 import com.altarisnine.redstone.api.inventory.Item;
+import com.altarisnine.redstone.api.text.Text;
 import lombok.Getter;
 
 import java.util.HashMap;
@@ -15,6 +16,7 @@ public abstract class GUI {
     @Getter private final int rows;
     @Getter private final Map<Integer, GUIAction> actions;
     @Getter private final Map<Integer, Item> items;
+    @Getter protected Text title = Text.of("&fGUI");
 
     /**
      * Instantiates a new GUI.

@@ -3,6 +3,7 @@ package com.altarisnine.redstone.api.server;
 import com.altarisnine.redstone.api.entity.Entity;
 import com.altarisnine.redstone.api.entity.living.player.OfflinePlayer;
 import com.altarisnine.redstone.api.entity.living.player.Player;
+import com.altarisnine.redstone.api.event.EventManager;
 import com.altarisnine.redstone.api.guard.Guard;
 import com.altarisnine.redstone.api.plugin.PluginManager;
 import com.altarisnine.redstone.api.scheduling.Scheduler;
@@ -26,6 +27,7 @@ public interface Server {
     Entity getEntity(UUID uuid);
     Guard getGuard();
     PluginManager getPluginManager();
+    EventManager getEventManager();
     Scheduler getScheduler();
     void announce(Text message);
 }

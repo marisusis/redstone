@@ -136,9 +136,6 @@ public abstract class RedstoneCore implements ConfigurationHolder {
         syncManager = new SyncManager(this);
         eventManager = new CoreEventManager(this);
 
-
-//        pubSubManager = new PubSubManager(this); This should only be used on BungeeCord (proxy server)
-
         this.logger.info("preLoad done.");
     }
 
@@ -184,6 +181,9 @@ public abstract class RedstoneCore implements ConfigurationHolder {
         storageManager.init(Player.class);
 
         loadDefaultCommands();
+
+        pubSubManager = new PubSubManager(this);
+
 
         this.logger.info("postLoad done.");
     }

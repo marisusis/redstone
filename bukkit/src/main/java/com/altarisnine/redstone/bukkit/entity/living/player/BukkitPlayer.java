@@ -30,7 +30,7 @@ public final class BukkitPlayer extends CorePlayer {
     }
 
     public void sendToServer(String serverName) {
-        throw new IllegalStateException("cannot send to server from non bungee atm");
+        core.getPubSubManager().publish("control", "send", this.getUniqueId().toString(), serverName);
     }
 
     @Override

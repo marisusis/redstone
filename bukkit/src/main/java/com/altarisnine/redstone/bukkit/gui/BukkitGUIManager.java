@@ -15,7 +15,7 @@ public class BukkitGUIManager extends GUIManager {
 
     @Override
     protected void openGUIInventory(Player player, GUI gui) {
-        Inventory inventory = Bukkit.createInventory(Bukkit.getPlayer(player.getUniqueId()), gui.getSize());
+        Inventory inventory = Bukkit.createInventory(Bukkit.getPlayer(player.getUniqueId()), gui.getSize(), gui.getTitle().toFormat().replace("&", "§"));
 
         gui.getItems().forEach((index, item) -> inventory.setItem(index, Converter.item(item)));
 
