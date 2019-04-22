@@ -64,7 +64,7 @@ public final class Location implements ConfigSerializable {
         ConfigurationSection section = new MemoryConfiguration();
 
         section.set("x", x);
-        section.set("y", x);
+        section.set("y", y);
         section.set("z", z);
         section.set("world", world.getName());
         section.set("pitch", pitch);
